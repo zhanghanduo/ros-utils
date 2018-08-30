@@ -20,5 +20,8 @@ TARGET_LINK_LIBRARIES(odom_to_imu ${catkin_LIBRARIES})
 ADD_EXECUTABLE(pose_to_odom src/pose_to_odom.cpp)
 TARGET_LINK_LIBRARIES(pose_to_odom ${catkin_LIBRARIES})
 
+ADD_EXECUTABLE(odom_to_path src/odom_to_path.cpp)
+TARGET_LINK_LIBRARIES(odom_to_path ${catkin_LIBRARIES})
+
 ADD_EXECUTABLE(poseWithCovariance_to_ellipsoid src/poseWithCovariance_to_ellipsoid.cpp)
 TARGET_LINK_LIBRARIES(poseWithCovariance_to_ellipsoid ${catkin_LIBRARIES})
