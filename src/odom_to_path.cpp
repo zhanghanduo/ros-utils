@@ -29,9 +29,9 @@ private:
 };
 
 OdomToPath::OdomToPath()
-        : nhp_("~"), listener(tf_buffer)
+        : nhp_("~")
 {
-    odom_sub_ = nh_.subscribe("odom", 100, &OdomToPose::odomCallback, this);
+    odom_sub_ = nh_.subscribe("odom", 100, &OdomToPath::odomCallback, this);
     path_pub_ = nh_.advertise<nav_msgs::Path>("path", 100);
     nhp_.param("target_frame", target_frame, std::string());
 }
@@ -40,7 +40,7 @@ void OdomToPath::odomCallback(const nav_msgs::Odometry::ConstPtr& odom_msg)
 {
     geometry_msgs::PoseStamped pose_msg;
     pose_msg.header = odom_msg->header;
-    pose_msg.pose = odom_msg->pose;
+    pose_msg.pose = odom_msg->pose.pose;
 
     path_msg_.header.frame_id = odom_msg->header.frame_id;
 
