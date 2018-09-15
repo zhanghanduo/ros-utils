@@ -11,6 +11,9 @@ include_directories(${catkin_INCLUDE_DIRS})
 ADD_EXECUTABLE(pose_to_path src/pose_to_path.cpp)
 TARGET_LINK_LIBRARIES(pose_to_path ${catkin_LIBRARIES})
 
+ADD_EXECUTABLE(pose_stamp_to_path src/pose_stamp_to_path.cpp)
+TARGET_LINK_LIBRARIES(pose_stamp_to_path ${catkin_LIBRARIES})
+
 ADD_EXECUTABLE(odom_to_pose src/odom_to_pose.cpp)
 TARGET_LINK_LIBRARIES(odom_to_pose ${catkin_LIBRARIES})
 
