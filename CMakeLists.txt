@@ -3,8 +3,11 @@ project(ros_utils)
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake-modules)
 
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
+message(STATUS "Eigen location: ${EIGEN3_INCLUDE_DIR}")
 
-find_package(catkin REQUIRED COMPONENTS roscpp cmake_modules geometry_msgs nav_msgs tf2 tf2_ros tf2_geometry_msgs)
+find_package(catkin REQUIRED COMPONENTS roscpp cmake_modules geometry_msgs nav_msgs tf2 tf2_ros tf2_geometry_msgs eigen_conversions)
 catkin_package(CATKIN_DEPENDS roscpp geometry_msgs nav_msgs )
 include_directories(${catkin_INCLUDE_DIRS})
 
